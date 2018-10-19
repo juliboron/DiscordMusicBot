@@ -23,6 +23,7 @@ public class CommandHandler {
             
         } else {
             //TODO: !Help Message
+            System.out.println("[CMD Handler]:  ERROR");
         }
     }
 
