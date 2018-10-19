@@ -1,5 +1,6 @@
 package core;
 
+import commands.cmdAdmin;
 import commands.cmdPing;
 import listeners.commandListener;
 import listeners.voiceListener;
@@ -50,6 +51,7 @@ public class Main {
 
     public static void initCommadns(){
         commandHandler.commands.put("ping", new cmdPing());
+        commandHandler.commands.put("admin", new cmdAdmin());
 
         System.out.println("Commands initialized");
     }

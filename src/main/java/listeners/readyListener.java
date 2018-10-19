@@ -9,10 +9,10 @@ public class readyListener extends ListenerAdapter {
     @Override
     public void onReady(ReadyEvent event){
 
-        String out = "\nThis bot is running on following Servers:  \n";
+        String out = "\n[readyListener]:    This bot is running on following Servers:  \n";
 
         for (Guild g : event.getJDA().getGuilds()) {
-            out += g.getName() + " (" + g.getId() + ") \n";
+            out += "                    " + g.getName() + " (" + g.getId() + ") \n";
         }
 
         System.out.println(out);
@@ -24,5 +24,7 @@ public class readyListener extends ListenerAdapter {
             ).queue();
         }
 
+
+        System.out.println("[readyListener]:    Bot is ready");
     }
 }
