@@ -1,8 +1,10 @@
 package commands;
 
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 
-public class CmdPing implements Command{
+public class cmdPing implements Command{
+
 
     @Override
     public boolean called(String[] args, MessageReceivedEvent e) {
@@ -11,12 +13,12 @@ public class CmdPing implements Command{
 
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
-        e.getTextChannel().sendMessage("Pong!").queue();
+        e.getChannel().sendMessage("Pong").queue();
     }
 
     @Override
     public void executed(boolean succsess, MessageReceivedEvent e) {
-        System.out.println("[CMD]:  Command 'ping' wurde ausgeführt");
+
     }
 
     @Override

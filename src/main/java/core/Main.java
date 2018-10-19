@@ -1,10 +1,9 @@
 package core;
 
-import commands.CmdPing;
-import commands.Command;
-import listeners.CommandListener;
-import listeners.VoiceListener;
-import listeners.ReadyListener;
+import commands.cmdPing;
+import listeners.commandListener;
+import listeners.voiceListener;
+import listeners.readyListener;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
@@ -42,15 +41,15 @@ public class Main {
 
     public static void initListeners(){
         //TODO: Listeners
-        builder.addEventListener(new ReadyListener());
-        builder.addEventListener(new VoiceListener());
-        builder.addEventListener(new CommandListener());
+        builder.addEventListener(new readyListener());
+        builder.addEventListener(new voiceListener());
+        builder.addEventListener(new commandListener());
 
         System.out.println("Listeners initialized");
     }
 
     public static void initCommadns(){
-        CommandHandler.commands.put("ping", new CmdPing());
+        commandHandler.commands.put("ping", new cmdPing());
 
         System.out.println("Commands initialized");
     }
