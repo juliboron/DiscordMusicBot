@@ -1,5 +1,6 @@
 package core;
 
+import commands.Music;
 import commands.cmdAdmin;
 import commands.cmdPing;
 import listeners.commandListener;
@@ -52,6 +53,8 @@ public class Main {
     public static void initCommadns(){
         commandHandler.commands.put("ping", new cmdPing());
         commandHandler.commands.put("admin", new cmdAdmin());
+        commandHandler.commands.put("m", new Music());
+        commandHandler.commands.put("music", new Music());
 
         System.out.println("Commands initialized");
     }
