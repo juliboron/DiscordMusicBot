@@ -1,6 +1,7 @@
 package core;
 
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import util.STATICS;
 
 import java.util.ArrayList;
 
@@ -8,8 +9,8 @@ public class commandParser {
 
     public commandContainer parse(String raw, MessageReceivedEvent event) {
 
-        String beheaded = raw.replaceFirst("\\-", "");
-        String[] splitBeheaded = beheaded.split("");
+        String beheaded = raw.replaceFirst(STATICS.PREFIX, "");
+        String[] splitBeheaded = beheaded.split(" ");
         String invoke = splitBeheaded[0];
         ArrayList<String> split = new ArrayList<String>();
         for (String s : splitBeheaded) {
