@@ -148,6 +148,9 @@ public class Music implements Command {
             case "play":
             case "p":
 
+
+
+                //:arrow_forward:
                 if (args.length < 2){
                     sendErrorMsg(e, "Please enter a valid source");
                     return;
@@ -166,6 +169,8 @@ public class Music implements Command {
             case "skip":
             case "s":
 
+
+                //:fast_forward:
                 if (isIdle(guild)) return;
                 for (int i = (args.length > 1 ? Integer.parseInt(args[1]) : 1); i == 1; i--) {
                     skip(guild);
@@ -176,6 +181,7 @@ public class Music implements Command {
 
             case "stop":
 
+                //:stop_button:
                 if (isIdle(guild)) return;
 
                 getManager(guild).purgeQueue();
@@ -187,6 +193,8 @@ public class Music implements Command {
 
             case "shuffle":
 
+
+                //:twisted_rightwards_arrows:
                 if (isIdle(guild)) return;
                 getManager(guild).shuffleQueue();
 
@@ -203,7 +211,7 @@ public class Music implements Command {
 
                 e.getTextChannel().sendMessage(
                         new EmbedBuilder()
-                        .setDescription("**CURRENT TRACK INFO:**")
+                        .setDescription(":musical_note: **CURRENT TRACK INFO:**")
                         .addField("Title", info.title, false)
                         .addField("Duration", "'[" + getTimestamp(track.getPosition()) + "/ " + getTimestamp(track.getDuration()) + " ]'", false)
                         .build()
@@ -235,7 +243,7 @@ public class Music implements Command {
                 e.getTextChannel().sendMessage(
                         new EmbedBuilder()
                         .setDescription(
-                                "**CURRENT QUEUE**\n\n" +
+                                ":musical_score:**CURRENT QUEUE**\n\n" +
                                 "*[" +getManager(guild).getQueue().stream() + "Track | Side " + sideNumb + " / " + sideNumbAll + "]*" +
                                 out
                         ).build()
