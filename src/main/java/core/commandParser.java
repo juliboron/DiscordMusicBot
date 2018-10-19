@@ -1,8 +1,6 @@
 package core;
 
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
-import util.STATICS;
 
 import java.util.ArrayList;
 

@@ -1,20 +1,16 @@
 package listeners;
 
-import core.*;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
-import util.STATICS;
+import core.commandHandler;
 
 public class commandListener extends ListenerAdapter {
 
+    public void onMessageReceived(MessageReceivedEvent event) {
 
-    public static void onMessageRecieved(MessageReceivedEvent event){
-
-        if (event.getMessage().getContentRaw().startsWith(STATICS.PREFIX) && event.getMessage().getAuthor().isBot() == false){
-            commandHandler.handleCommand(commandHandler.parse.parse(event.getMessage().getContentRaw(), event));
+        if (event.getMessage().getContentRaw().startsWith("!") && event.getMessage().getAuthor().getId() != event.getJDA().getSelfUser().getId()) {
+            commandHandler.handleCommand(commandHandler.parser.parse(event.getMessage().getContentRaw(), event));
         }
-
-
 
     }
 
