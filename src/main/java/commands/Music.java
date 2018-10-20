@@ -251,6 +251,20 @@ public class Music implements Command {
 
 
                 break;
+
+
+            case "lauber":
+            case "laubi":
+            case "hits":
+            case "charts":
+            case "fav":
+            case "schlager":
+
+                loadTrack("https://www.youtube.com/playlist?list=PLt7SNuzYhi6kC0_BgmpCgV6WgAfAKF6_U", e.getMember(), e.getMessage());
+
+                 break;
+
+
         }
 
     }
