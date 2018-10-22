@@ -42,7 +42,6 @@ public class Main {
 
 
     public static void initListeners(){
-        //TODO: Listeners
         builder.addEventListener(new readyListener());
         builder.addEventListener(new voiceListener());
         builder.addEventListener(new commandListener());

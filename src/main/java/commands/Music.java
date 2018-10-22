@@ -145,10 +145,11 @@ public class Music implements Command {
 
         switch (args[0].toLowerCase()){
 
+
             case "play":
             case "p":
 
-
+                //:ballot_box_with_check:
 
                 //:arrow_forward:
                 if (args.length < 2){
@@ -163,6 +164,10 @@ public class Music implements Command {
 
                 loadTrack(input, e.getMember(), e.getMessage());
 
+                e.getTextChannel().sendMessage(
+                        "Searching " + input+"\n:arrow_forward:**Song(s) enqueued**\n *Total of* " + 1 +" Song enqueued"
+                ).queue();
+
 
                 break;
 
@@ -175,6 +180,9 @@ public class Music implements Command {
                 for (int i = (args.length > 1 ? Integer.parseInt(args[1]) : 1); i == 1; i--) {
                     skip(guild);
                 }
+                e.getTextChannel().sendMessage(
+                        ":fast_forward:**Skipped**"
+                ).queue();
 
                 break;
 
@@ -188,6 +196,9 @@ public class Music implements Command {
                 skip(guild);
                 guild.getAudioManager().closeAudioConnection();
 
+                e.getTextChannel().sendMessage(
+                        ":stop_button:**Queue deleted**"
+                ).queue();
                 break;
 
 
@@ -197,6 +208,9 @@ public class Music implements Command {
                 //:twisted_rightwards_arrows:
                 if (isIdle(guild)) return;
                 getManager(guild).shuffleQueue();
+                e.getTextChannel().sendMessage(
+                        ":twisted_rightwards_arrows:**Queue shuffled**"
+                ).queue();
 
                 break;
 
@@ -212,7 +226,7 @@ public class Music implements Command {
                 e.getTextChannel().sendMessage(
                         new EmbedBuilder()
                         .setDescription(":musical_note: **CURRENT TRACK INFO:**")
-                        .addField("Title", info.title, false)
+                        .addField(":information_source:Title", info.title, false)
                         .addField("Duration", "'[" + getTimestamp(track.getPosition()) + "/ " + getTimestamp(track.getDuration()) + " ]'", false)
                         .build()
                 ).queue();
@@ -263,6 +277,24 @@ public class Music implements Command {
                 loadTrack("https://www.youtube.com/playlist?list=PLt7SNuzYhi6kC0_BgmpCgV6WgAfAKF6_U", e.getMember(), e.getMessage());
 
                  break;
+
+            case "help":
+            case "h":
+
+                e.getTextChannel().sendMessage(
+                        new EmbedBuilder()
+                                .setDescription("**HELP**")
+                                .addField(":arrow_forward:  **-m play** 'YouTube link'", "     Adds a song or playlist to the queue" , false)
+                                .addField(":fast_forward:   **-m skip** optional: 'number'", "      Skips the given amount of songs in the queue", false)
+                                .addField(":stop_button:   **-m stop**", "     Stops the Audioplayer", false)
+                                .addField(":twisted_rightwards_arrows:   **-m shuffle**", "      Suffles the enqueued songs", false)
+                                .addField(":information_source:   **-m playing**", "       Shows the track info", false)
+                                .addField(":arrows_clockwise:   **-m queue**", "       Shows the enqueued songs", false)
+                                .build()
+                ).queue();
+
+
+                break;
 
 
         }

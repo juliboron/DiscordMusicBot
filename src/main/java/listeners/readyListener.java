@@ -1,8 +1,15 @@
 package listeners;
 
+import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.Guild;
+import net.dv8tion.jda.core.entities.Message;
+import net.dv8tion.jda.core.entities.MessageEmbed;
 import net.dv8tion.jda.core.events.ReadyEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import javax.swing.*;
+import java.awt.*;
+
+import java.awt.*;
 
 public class readyListener extends ListenerAdapter {
 
@@ -18,9 +25,14 @@ public class readyListener extends ListenerAdapter {
         System.out.println(out);
 
 
+
+        //TODO: Ready Message and Playing Version Function
         for (Guild g : event.getJDA().getGuilds()) {
             g.getTextChannels().get(0).sendMessage(
-                "Hey im Back!"
+                    (Message) new EmbedBuilder()
+                    .setColor(new Color(225,255,255))
+                    .setDescription("***I'M BACK***")
+                    .addField("**Current Verison**", "", false)
             ).queue();
         }
 
