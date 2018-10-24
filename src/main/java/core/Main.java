@@ -10,6 +10,7 @@ import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.OnlineStatus;
+import net.dv8tion.jda.core.entities.Game;
 import util.SECRETS;
 
 import javax.security.auth.login.LoginException;
@@ -25,6 +26,7 @@ public class Main {
         builder.setToken(SECRETS.getTOKEN());
         builder.setAutoReconnect(true);
         builder.setStatus(OnlineStatus.ONLINE);
+        builder.setGame(Game.playing("v. 1.0.1"));
 
         initListeners();
         initCommadns();
